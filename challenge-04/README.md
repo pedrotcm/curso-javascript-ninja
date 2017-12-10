@@ -114,11 +114,12 @@ citado acima, no lugar de "pessoas".
 */
 carro.adicionarPessoas = function(numeroPessoas){
 	var qntFinal = carro.quantidadeDePessoas + numeroPessoas;
+  var qntVagas = carro.assentos - carro.quantidadeDePessoas;
+	var termoPessoa = qntVagas == 1? 'pessoa!' : 'pessoas!';
+    
 	if (carro.quantidadeDePessoas === carro.assentos && qntFinal >= carro.assentos){
 		return 'O carro já está lotado!';
 	} else if (qntFinal > carro.assentos){
-		var qntVagas = carro.assentos - carro.quantidadeDePessoas;
-		var termoPessoa = qntVagas == 1? 'pessoa!' : 'pessoas!';
 		return 'Só cabem mais ' + qntVagas + ' ' +  termoPessoa ;
 	}
 	carro.quantidadeDePessoas += numeroPessoas;
