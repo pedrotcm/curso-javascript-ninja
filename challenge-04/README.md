@@ -94,7 +94,7 @@ Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
 carro.obterMarcaModelo = function(){
 	return 'Esse carro é um ' + carro.obterMarca + ' ' + carro.obterModelo();
-};c
+};
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -112,7 +112,19 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+carro.adicionarPessoas = function(numeroPessoas){
+	var qntFinal = carro.quantidadeDePessoas + numeroPessoas;
+	if (carro.quantidadeDePessoas === carro.assentos){
+		return 'O carro já está lotado!';
+	} else if (qntFinal > carro.assentos){
+		var qntVagas = carro.assentos - carro.quantidadeDePessoas;
+		var termoPessoa = qntVagas == 1? 'pessoa!' : 'pessoas!';
+		return 'Só cabem mais ' + qntVagas + ' ' +  termoPessoa ;
+	}
+	carro.quantidadeDePessoas += numeroPessoas;
+	var termoPessoa = carro.quantidadeDePessoas == 1? 'pessoa' : 'pessoas';
+	return 'Já temos ' + carro.quantidadeDePessoas + ' ' + termoPessoa + ' no carro!';
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
