@@ -71,10 +71,8 @@ function book(nomeLivro){
 			editora: 'Editora 3'
 		}
 	};
-	if (nomeLivro === undefined){
-		return livros;
-	}
-	return livros[nomeLivro];
+
+  return !livros ? livros : livros[nomeLivro];
 };
 
 /*
@@ -87,7 +85,8 @@ Ainda com a função acima, imprima a quantidade de páginas de um livro qualque
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-console.log ('O livro livro2 tem ' + book('livro2').quantidadePaginas + ' páginas!');  // O livro livro2 tem 230 páginas!
+var nomeLivro = 'livro2';
+console.log ('O livro ' + nomeLivro + ' tem ' + book(nomeLivro).quantidadePaginas + ' páginas!');  // O livro livro2 tem 230 páginas!
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
